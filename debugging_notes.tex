@@ -1,0 +1,7 @@
+\section{Debugging notes}
+
+\noindent For C++ Eigen library, suppose you want to reshape a MatrixXd object \textbf{tmp}, you can do \\
+Map$<$MatrixXd$>$ \textbf{b}(tmp.data(), rows, cols); \\
+But an important thing to notice is that you can not do \textbf{inplace-transpose} on new matrix \textbf{b}, that is \textbf{b}.transposeInPlace() is not allowed, because the shape of \textbf{b} is somehow fixed.\\
+
+\noindent My first instinct is that \textbf{b} is a dynamic-size matrix object, so its size should be flexible (changeable), but that's not true, the real type of \textbf{b} is Map$<$MatrixXd$>$, it is just a map onto \textbf{tmp}, also \textbf{b} itself does not require extra storage, that is \textbf{b} is a different view on \textbf{tmp}, changes in \textbf{b} will lead to changes in \textbf{tmp} (\textbf{b} is a reshaped 'reference' of \textbf{tmp}). For Class Map, transposeInPlace() is not provided, which makes sense, because I think changing the structure of \textbf{tmp} (\textbf{tmp}.data()) on memory by just operating on \textbf{b} is very dangerous. 
