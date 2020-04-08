@@ -1,0 +1,18 @@
+# How to make unix executable
+-------- make all
+
+# Clean all *.o file
+-------- make clean
+
+# How to run 2d SWE FV solver
+-------- ./2DFV > output.txt
+
+# What is ./main and main.dSYM?
+-------- They are produced by VScode debugging tool, with that said,
+-------- ./main is also executable but might run a little bit slower than ./2DFV
+
+# After the simulation was done, how to visualize data?
+-------- There are three MATLAB script to do this,
+-------- freestream_visualization.m    	  // Plot residual, force for freestream test
+-------- force_plot.m			  // Plot Fx, Fy for real simulation
+-------- state_contour.m		  // plot contour of water height

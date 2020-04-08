@@ -1,0 +1,21 @@
+# Boundary type (Full or Wall)
+Full
+
+# CFL
+0.8
+
+# Residual Output
+True
+
+# Force Output
+True
+
+# State Output
+False
+0.0	tmin
+0.25	tmax
+0.05	dt_out
+
+# Simulation Time
+1000	     nIteration
+-2.0	     nTime (right now, nTime/dt_out has to be an integer)
